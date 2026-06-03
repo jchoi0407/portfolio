@@ -62,7 +62,7 @@ export const projects: Project[] = [
       "Designed a clean warm interface with lightweight interactive project details.",
     ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "#",
+    github: "https://github.com/jchoi0407/portfolio",
     demo: "#",
     image: "/projects/portfolio_avatar.png",
     imageFit: "contain",
