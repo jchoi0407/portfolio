@@ -12,10 +12,10 @@ export default function Hero() {
       className="mx-auto grid min-h-[90vh] w-full max-w-6xl scroll-mt-20 items-center gap-12 px-6 py-24 lg:grid-cols-[1.1fr_0.9fr]"
     >
       <div className="max-w-3xl">
-        <div className="flex items-center gap-2 text-sm font-medium text-[#5f6f64] dark:text-[#b7c3b9]">
-          <span className="relative flex h-2 w-2">
+        <div className="flex items-center gap-2.5 text-[15px] font-medium text-[#5f6f64] dark:text-[#b7c3b9]">
+          <span className="relative flex h-2.5 w-2.5">
             <span className="absolute inline-flex h-full w-full rounded-full bg-[#b91c1c] opacity-75 animate-ping" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#b91c1c]" />
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#b91c1c]" />
           </span>
           Seeking Summer 2027 SWE internships
         </div>

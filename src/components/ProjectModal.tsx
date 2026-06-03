@@ -42,6 +42,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <span className="rounded-full bg-[#1f2d24]/5 px-2.5 py-1 text-[#5f6f64] dark:bg-[#181818] dark:text-[#b7c3b9]">
                 {project.category}
               </span>
+              <span className="rounded-full bg-[#d8eadf]/70 px-2.5 py-1 text-[#274c3a] dark:bg-white/10 dark:text-[#f4f1df]">
+                {project.collaboration}
+              </span>
             </div>
             <h3
               id="project-modal-title"
@@ -105,28 +108,40 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </ul>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-2 text-sm font-semibold">
-            <a
-              href={project.github}
-              className="rounded-md border border-[#1f2d24]/15 px-3 py-2 text-[#1f2d24] transition hover:border-[#1f2d24]/30 hover:bg-[#fbfaf7] dark:border-white/15 dark:text-[#f4f1df] dark:hover:border-white/30 dark:hover:bg-white/10"
-            >
-              GitHub
-            </a>
-            <a
-              href={project.demo}
-              className="rounded-md border border-[#1f2d24]/15 px-3 py-2 text-[#1f2d24] transition hover:border-[#1f2d24]/30 hover:bg-[#fbfaf7] dark:border-white/15 dark:text-[#f4f1df] dark:hover:border-white/30 dark:hover:bg-white/10"
-            >
-              Demo
-            </a>
-            {project.live && (
-              <a
-                href={project.live}
-                className="rounded-md bg-[#1f2d24] px-3 py-2 text-[#fffaf0] transition hover:bg-[#2f4637] dark:bg-[#f4f1df] dark:text-[#050505] dark:hover:bg-white"
-              >
-                Live
-              </a>
-            )}
-          </div>
+          {(project.github || project.demo || project.live) && (
+            <div className="mt-6 flex flex-wrap gap-2 text-sm font-semibold">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md border border-[#1f2d24]/15 px-3 py-2 text-[#1f2d24] transition hover:border-[#1f2d24]/30 hover:bg-[#fbfaf7] dark:border-white/15 dark:text-[#f4f1df] dark:hover:border-white/30 dark:hover:bg-white/10"
+                >
+                  GitHub
+                </a>
+              )}
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md border border-[#1f2d24]/15 px-3 py-2 text-[#1f2d24] transition hover:border-[#1f2d24]/30 hover:bg-[#fbfaf7] dark:border-white/15 dark:text-[#f4f1df] dark:hover:border-white/30 dark:hover:bg-white/10"
+                >
+                  Demo
+                </a>
+              )}
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md bg-[#1f2d24] px-3 py-2 text-[#fffaf0] transition hover:bg-[#2f4637] dark:bg-[#f4f1df] dark:text-[#050505] dark:hover:bg-white"
+                >
+                  Live
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

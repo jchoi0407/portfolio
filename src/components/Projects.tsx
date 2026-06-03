@@ -71,38 +71,17 @@ export default function Projects() {
                   <span className="rounded-full bg-[#1f2d24]/5 px-2.5 py-1 text-[#5f6f64] dark:bg-[#181818] dark:text-[#b7c3b9]">
                     {project.category}
                   </span>
+                  <span className="rounded-full bg-[#d8eadf]/70 px-2.5 py-1 text-[#274c3a] dark:bg-white/10 dark:text-[#f4f1df]">
+                    {project.collaboration}
+                  </span>
                 </div>
 
                 <h3 className="text-xl font-semibold tracking-tight text-[#1f2d24] dark:text-[#f4f1df]">
                   {project.title}
                 </h3>
-
-                <div
-                  className="mt-auto flex flex-wrap gap-2 pt-5 text-sm font-semibold"
-                  onClick={(event) => event.stopPropagation()}
-                  onKeyDown={(event) => event.stopPropagation()}
-                >
-                  <a
-                    href={project.github}
-                    className="rounded-md border border-[#1f2d24]/15 px-3 py-2 text-[#1f2d24] transition hover:border-[#1f2d24]/30 hover:bg-[#fbfaf7] dark:border-white/15 dark:text-[#f4f1df] dark:hover:border-white/30 dark:hover:bg-white/10"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="rounded-md border border-[#1f2d24]/15 px-3 py-2 text-[#1f2d24] transition hover:border-[#1f2d24]/30 hover:bg-[#fbfaf7] dark:border-white/15 dark:text-[#f4f1df] dark:hover:border-white/30 dark:hover:bg-white/10"
-                  >
-                    Demo
-                  </a>
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      className="rounded-md border border-[#1f2d24]/15 px-3 py-2 text-[#1f2d24] transition hover:border-[#1f2d24]/30 hover:bg-[#fbfaf7] dark:border-white/15 dark:text-[#f4f1df] dark:hover:border-white/30 dark:hover:bg-white/10"
-                    >
-                      Live
-                    </a>
-                  )}
-                </div>
+                <p className="mt-auto pt-5 text-sm font-medium text-[#5f6f64] dark:text-[#b7c3b9]">
+                  Click to view details
+                </p>
               </div>
             </article>
           ))}

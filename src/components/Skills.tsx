@@ -12,8 +12,8 @@ export default function Skills() {
           Skills
         </h2>
         <p className="mt-3 text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]">
-          A practical snapshot of technologies I can discuss from coursework
-          and projects.
+          Core technologies I can discuss from coursework, projects, and
+          hands-on software work.
         </p>
       </div>
 
@@ -21,9 +21,11 @@ export default function Skills() {
         {skills.map((skill) => (
           <article
             key={skill.name}
-            className="flex items-center gap-4 rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 dark:border-white/10 dark:bg-[#111111]"
+            className="flex items-center gap-4 rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 transition hover:-translate-y-0.5 hover:border-[#1f2d24]/20 hover:shadow-md hover:shadow-[#1f2d24]/10 dark:border-white/10 dark:bg-[#111111] dark:hover:border-white/20"
           >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#1f2d24]/10 bg-[#fbfaf7] text-sm font-semibold text-[#1f2d24] dark:border-white/10 dark:bg-[#181818] dark:text-[#f4f1df]">
+            <div
+              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold shadow-sm ${skill.iconClass}`}
+            >
               {skill.icon}
             </div>
             <div>
