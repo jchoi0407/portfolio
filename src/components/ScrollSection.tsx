@@ -41,9 +41,12 @@ export default function ScrollSection({
       const rawProgress = Math.max(0, 1 - distance / maxDistance);
       const progress = rawProgress * rawProgress * (3 - 2 * rawProgress);
       const direction = sectionCenter < viewportCenter ? -1 : 1;
+      const isMobile = window.innerWidth < 768;
+      const minOpacity = isMobile ? 0.85 : 0.65;
+      const translateAmount = isMobile ? 4 : 8;
 
-      const opacity = 0.65 + progress * 0.35;
-      const translateY = direction * (1 - progress) * 8;
+      const opacity = minOpacity + progress * (1 - minOpacity);
+      const translateY = direction * (1 - progress) * translateAmount;
 
       setStyle({
         opacity,
