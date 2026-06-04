@@ -29,20 +29,31 @@ export default function Navbar() {
   useEffect(() => {
     const sections = navLinks
       .map((link) => document.getElementById(link.id))
-      .filter((s): s is HTMLElement => s !== null);
+      .filter((section): section is HTMLElement => section !== null);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveSection(visible.target.id);
-      },
-      { rootMargin: "-35% 0px -45% 0px", threshold: [0.1, 0.25, 0.5] }
-    );
+    function updateActiveSection() {
+      const viewportAnchor = window.innerHeight * 0.42;
+      let currentSection = sections[0]?.id ?? "about";
 
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= viewportAnchor) {
+          currentSection = section.id;
+        }
+      }
+
+      setActiveSection(currentSection);
+    }
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   function toggleDarkMode() {

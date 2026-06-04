@@ -40,9 +40,14 @@ export default function HeroProfileCard() {
         className={`relative min-h-[470px] rounded-[2rem] transition duration-700 [transform-style:preserve-3d] group-focus-visible:ring-2 group-focus-visible:ring-[#b91c1c]/30 ${
           flipped ? "[transform:rotateY(180deg)]" : ""
         }`}
+        style={{ transformStyle: "preserve-3d" }}
       >
         <div
           className="absolute inset-0 overflow-hidden rounded-[2rem] border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 [backface-visibility:hidden] dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20"
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[#b91c1c] dark:bg-[#8f1818]" />
           <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-white/35" />
@@ -56,13 +61,14 @@ export default function HeroProfileCard() {
           </div>
 
           <div className="relative z-10 mt-12 flex justify-center">
-            <div className="relative h-56 w-48 overflow-hidden rounded-3xl border border-[#1f2d24]/10 bg-white p-2 shadow-sm shadow-[#1f2d24]/10 dark:border-white/10 dark:bg-[#181818]">
+            <div className="inline-flex rounded-3xl border border-[#1f2d24]/10 bg-white p-1 shadow-sm shadow-[#1f2d24]/10 dark:border-white/10 dark:bg-[#181818]">
               <Image
                 src="/profile.jpg"
                 alt="Junho Choi profile"
-                fill
-                sizes="160px"
-                className="object-contain brightness-[1.04]"
+                width={413}
+                height={531}
+                sizes="176px"
+                className="h-auto w-44 rounded-[1.35rem] brightness-[1.04]"
                 priority
               />
             </div>
@@ -81,6 +87,11 @@ export default function HeroProfileCard() {
 
         <div
           className="absolute inset-0 overflow-hidden rounded-[2rem] border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 [backface-visibility:hidden] [transform:rotateY(180deg)] dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20"
+          style={{
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[#b91c1c] dark:bg-[#8f1818]" />
           <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-white/35" />

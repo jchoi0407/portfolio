@@ -23,17 +23,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#1f2d24]/20 px-4 py-6 backdrop-blur-[2px] animate-modal-backdrop dark:bg-black/55"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[#1f2d24]/20 px-4 py-4 backdrop-blur-[2px] animate-modal-backdrop dark:bg-black/55 sm:items-center sm:py-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="project-modal-title"
       onClick={onClose}
     >
       <div
-        className="max-h-full w-full max-w-3xl overflow-hidden rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] shadow-2xl shadow-[#1f2d24]/20 animate-modal-window dark:border-white/10 dark:bg-[#111111] dark:shadow-black/40"
+        className="flex max-h-[calc(100dvh-2rem)] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] shadow-2xl shadow-[#1f2d24]/20 animate-modal-window dark:border-white/10 dark:bg-[#111111] dark:shadow-black/40"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex items-start justify-between gap-6 border-b border-[#1f2d24]/10 px-5 py-5 dark:border-white/10 sm:px-6">
+        <div className="shrink-0 flex items-start justify-between gap-6 border-b border-[#1f2d24]/10 px-5 py-5 dark:border-white/10 sm:px-6">
           <div>
             <div className="flex flex-wrap gap-2 text-sm font-medium">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-[#b91c1c]/10 px-2.5 py-1 text-[#8f1818] dark:bg-[#b91c1c]/25 dark:text-[#ffb4a8]">
@@ -109,7 +109,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </button>
         </div>
 
-        <div className="max-h-[80vh] overflow-y-auto p-5 sm:p-6">
+        <div className="min-h-0 flex-1 overflow-y-auto p-5 pb-8 sm:p-6 sm:pb-8">
           <p className="max-w-2xl text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]">
             {project.description}
           </p>
