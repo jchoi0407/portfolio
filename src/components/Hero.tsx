@@ -1,8 +1,10 @@
 
+import Image from "next/image";
+
 const snapshotItems = [
-  { label: "Year", value: "Junior" },
   { label: "School", value: "University of Maryland" },
-  { label: "Focus", value: "Full-stack, mobile, computer vision" },
+  { label: "Location", value: "College Park, MD" },
+  { label: "Focus", value: "Full-stack · Mobile · Computer Vision" },
 ];
 
 export default function Hero() {
@@ -25,21 +27,39 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5f6f64] dark:text-[#b7c3b9]">
-          A junior Computer Science student at UMD interested in full-stack
-          development, mobile applications, and computer vision.
+          I&apos;m a junior Computer Science student at the University of
+          Maryland, interested in full-stack development, mobile applications,
+          and computer vision.
         </p>
 
         <p className="mt-5 max-w-2xl text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]">
-          I care about clean implementation, practical product decisions, and
-          building things that are simple enough for real people to use.
+          I&apos;m drawn to projects that combine solid engineering fundamentals
+          with interfaces people can actually interact with.
         </p>
       </div>
 
-      <aside className="rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] p-6 shadow-sm shadow-[#1f2d24]/5 dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#b91c1c] dark:text-[#ffb4a8]">
-          Snapshot
-        </p>
-        <div className="mt-4 divide-y divide-[#1f2d24]/10 dark:divide-white/10">
+      <aside className="group rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] p-6 shadow-sm shadow-[#1f2d24]/5 transition duration-300 hover:-translate-y-1 hover:border-[#1f2d24]/15 hover:shadow-xl hover:shadow-[#1f2d24]/10 dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20 dark:hover:border-white/20">
+        <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-full bg-[#fbfaf7] shadow-sm shadow-[#1f2d24]/10 ring-1 ring-[#1f2d24]/10 transition duration-300 group-hover:brightness-105 dark:bg-[#181818] dark:ring-white/10">
+          <Image
+            src="/projects/portfolio_avatar.png"
+            alt="Junho Choi avatar"
+            fill
+            sizes="128px"
+            className="object-contain p-1"
+            priority
+          />
+        </div>
+
+        <div className="mt-5 text-center">
+          <p className="text-xl font-semibold tracking-tight text-[#1f2d24] dark:text-[#f4f1df]">
+            Junho Choi
+          </p>
+          <p className="mt-1 text-sm font-medium text-[#5f6f64] dark:text-[#b7c3b9]">
+            Computer Science @ UMD
+          </p>
+        </div>
+
+        <div className="mt-6 divide-y divide-[#1f2d24]/10 dark:divide-white/10">
           {snapshotItems.map((item) => (
             <div
               key={item.label}

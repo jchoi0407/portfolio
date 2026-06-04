@@ -54,7 +54,7 @@ export const projects: Project[] = [
   },
   {
     title: "Personal Portfolio",
-    status: "Building",
+    status: "In progress",
     category: "Frontend",
     collaboration: "Solo",
     description:
@@ -66,6 +66,7 @@ export const projects: Project[] = [
     ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/jchoi0407/portfolio",
+    live: "https://choijunho.com",
     image: "/projects/portfolio_avatar.png",
     imageFit: "contain",
     imageBackground: "card",

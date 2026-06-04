@@ -35,8 +35,8 @@ export default function Contact() {
             Let&apos;s connect.
           </h2>
           <p className="mt-4 max-w-xl text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]">
-            I&apos;m looking for teams where I can build useful software, learn
-            quickly, and contribute with care.
+            I&apos;m open to software engineering internship opportunities where I
+            can learn quickly, contribute carefully, and build useful products.
           </p>
         </div>
 

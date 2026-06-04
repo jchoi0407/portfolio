@@ -12,8 +12,8 @@ export default function Skills() {
           Skills
         </h2>
         <p className="mt-3 text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]">
-          Core technologies I can discuss from coursework, projects, and
-          hands-on software work.
+          Technologies I&apos;ve used through computer science coursework,
+          project development, and hands-on software work.
         </p>
       </div>
 

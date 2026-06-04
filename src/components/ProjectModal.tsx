@@ -35,20 +35,54 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       >
         <div className="flex items-start justify-between gap-6 border-b border-[#1f2d24]/10 px-5 py-5 dark:border-white/10 sm:px-6">
           <div>
-            <div className="flex flex-wrap gap-2 text-xs font-medium">
-              <span className="rounded-full bg-[#b91c1c]/10 px-2.5 py-1 text-[#8f1818] dark:bg-[#b91c1c]/25 dark:text-[#ffb4a8]">
+            <div className="flex flex-wrap gap-2 text-sm font-medium">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#b91c1c]/10 px-2.5 py-1 text-[#8f1818] dark:bg-[#b91c1c]/25 dark:text-[#ffb4a8]">
+                {project.status === "In progress" && (
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#b91c1c] animate-pulse" />
+                )}
                 {project.status}
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-[#1f2d24]/5 px-2.5 py-1 text-[#5f6f64] dark:bg-[#181818] dark:text-[#b7c3b9]">
+                {project.collaboration === "Solo" ? (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-2.5 w-2.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                  >
+                    <path d="M20 21a8 8 0 0 0-16 0" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                ) : (
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-2.5 w-2.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                  >
+                    <path d="M16 21a6 6 0 0 0-12 0" />
+                    <circle cx="10" cy="7" r="4" />
+                    <path d="M22 21a5 5 0 0 0-4-4.9" />
+                    <path d="M17 3.1a4 4 0 0 1 0 7.8" />
+                  </svg>
+                )}
+                {project.collaboration}
               </span>
               <span className="rounded-full bg-[#1f2d24]/5 px-2.5 py-1 text-[#5f6f64] dark:bg-[#181818] dark:text-[#b7c3b9]">
                 {project.category}
               </span>
-              <span className="rounded-full bg-[#d8eadf]/70 px-2.5 py-1 text-[#274c3a] dark:bg-white/10 dark:text-[#f4f1df]">
-                {project.collaboration}
-              </span>
             </div>
             <h3
               id="project-modal-title"
-              className="mt-3 text-2xl font-semibold tracking-tight text-[#1f2d24] dark:text-[#f4f1df]"
+              className="mt-3 text-3xl font-semibold tracking-tight text-[#1f2d24] dark:text-[#f4f1df]"
             >
               {project.title}
             </h3>
@@ -76,7 +110,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         <div className="max-h-[80vh] overflow-y-auto p-5 sm:p-6">
-          <p className="max-w-2xl text-sm leading-6 text-[#5f6f64] dark:text-[#b7c3b9]">
+          <p className="max-w-2xl text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]">
             {project.description}
           </p>
 
@@ -84,7 +118,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             {project.tech.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-[#1f2d24]/10 bg-[#fbfaf7] px-3 py-1 text-xs font-medium text-[#5f6f64] dark:border-white/10 dark:bg-[#181818] dark:text-[#b7c3b9]"
+                className="rounded-full border border-[#1f2d24]/10 bg-[#fbfaf7] px-3 py-1 text-sm font-medium text-[#5f6f64] dark:border-white/10 dark:bg-[#181818] dark:text-[#b7c3b9]"
               >
                 {tech}
               </span>
@@ -92,14 +126,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           <div className="mt-6 rounded-2xl border border-[#1f2d24]/10 bg-[#fbfaf7] p-5 dark:border-white/10 dark:bg-[#181818]">
-            <h4 className="text-sm font-semibold text-[#1f2d24] dark:text-[#f4f1df]">
+            <h4 className="text-base font-semibold text-[#1f2d24] dark:text-[#f4f1df]">
               Project details
             </h4>
             <ul className="mt-3 space-y-2">
               {project.highlights.map((highlight) => (
                 <li
                   key={highlight}
-                  className="flex gap-2 text-sm leading-6 text-[#5f6f64] dark:text-[#b7c3b9]"
+                  className="flex gap-2 text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]"
                 >
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b91c1c]/70" />
                   <span>{highlight}</span>
@@ -109,7 +143,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           {(project.github || project.demo || project.live) && (
-            <div className="mt-6 flex flex-wrap gap-2 text-sm font-semibold">
+            <div className="mt-6 flex flex-wrap gap-2 text-base font-semibold">
               {project.github && (
                 <a
                   href={project.github}

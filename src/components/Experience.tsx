@@ -14,7 +14,8 @@ export default function Experience() {
           Work Experience
         </h2>
         <p className="mt-3 text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]">
-          Practical software work, team projects, and technical leadership.
+          Leadership, operations, and cross-cultural communication experience
+          in a mission-driven environment.
         </p>
       </div>
 
