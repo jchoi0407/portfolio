@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const profileDetails = [
   { label: "School", value: "University of Maryland" },
@@ -16,10 +16,30 @@ const qrCells = [
 ];
 
 export default function HeroProfileCard() {
+  const flipTimeoutRef = useRef<number | undefined>(undefined);
   const [flipped, setFlipped] = useState(false);
+  const [showBack, setShowBack] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      if (flipTimeoutRef.current) {
+        window.clearTimeout(flipTimeoutRef.current);
+      }
+    };
+  }, []);
 
   function flipCard() {
-    setFlipped((current) => !current);
+    const nextFlipped = !flipped;
+
+    setFlipped(nextFlipped);
+
+    if (flipTimeoutRef.current) {
+      window.clearTimeout(flipTimeoutRef.current);
+    }
+
+    flipTimeoutRef.current = window.setTimeout(() => {
+      setShowBack(nextFlipped);
+    }, 260);
   }
 
   return (
@@ -40,13 +60,19 @@ export default function HeroProfileCard() {
         className={`relative min-h-[470px] rounded-[2rem] transition duration-700 [transform-style:preserve-3d] group-focus-visible:ring-2 group-focus-visible:ring-[#b91c1c]/30 ${
           flipped ? "[transform:rotateY(180deg)]" : ""
         }`}
-        style={{ transformStyle: "preserve-3d" }}
+        style={{
+          transformStyle: "preserve-3d",
+          WebkitTransformStyle: "preserve-3d",
+        }}
       >
         <div
-          className="absolute inset-0 overflow-hidden rounded-[2rem] border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 [backface-visibility:hidden] dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20"
+          className={`absolute inset-0 overflow-hidden rounded-[2rem] border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 transition-opacity duration-200 [backface-visibility:hidden] dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20 ${
+            showBack ? "opacity-0" : "opacity-100"
+          }`}
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
+            transform: "translateZ(0)",
           }}
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[#b91c1c] dark:bg-[#8f1818]" />
@@ -86,11 +112,13 @@ export default function HeroProfileCard() {
         </div>
 
         <div
-          className="absolute inset-0 overflow-hidden rounded-[2rem] border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 [backface-visibility:hidden] [transform:rotateY(180deg)] dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20"
+          className={`absolute inset-0 overflow-hidden rounded-[2rem] border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 transition-opacity duration-200 [backface-visibility:hidden] [transform:rotateY(180deg)] dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20 ${
+            showBack ? "opacity-100" : "opacity-0"
+          }`}
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
+            transform: "rotateY(180deg) translateZ(0)",
           }}
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-[#b91c1c] dark:bg-[#8f1818]" />
