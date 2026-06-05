@@ -15,6 +15,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("about");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -49,9 +50,10 @@ export default function Navbar() {
 
   return (
     <nav className="fixed left-0 top-0 z-40 w-full border-b border-[#1f2d24]/5 bg-[#fbfaf7]/25 shadow-sm shadow-[#1f2d24]/0 backdrop-blur-xl dark:border-white/5 dark:bg-black/15 dark:shadow-black/20">
-      <div className="mx-auto flex max-w-6xl items-center gap-4 px-6 py-3">
+      <div className="relative mx-auto flex max-w-6xl items-center gap-4 px-6 py-3">
         <a
           href="#top"
+          onClick={() => setIsMenuOpen(false)}
           className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-white/30 shadow-sm shadow-[#1f2d24]/10 transition hover:bg-white/50 dark:bg-white/10 dark:hover:bg-white/20"
           aria-label="Back to top"
         >
@@ -64,7 +66,7 @@ export default function Navbar() {
           />
         </a>
 
-        <div className="flex min-w-0 flex-1 items-center gap-4 overflow-x-auto whitespace-nowrap">
+        <div className="hidden min-w-0 flex-1 items-center gap-4 overflow-x-auto whitespace-nowrap md:flex">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -77,17 +79,19 @@ export default function Navbar() {
                     : "border-b-2 border-transparent px-0.5 py-1 text-xs font-medium text-[#1f2d24]/65 transition hover:text-[#1f2d24] dark:text-white/65 dark:hover:text-white sm:text-sm"
                 }
               >
-                <span className="sm:hidden">{link.short}</span>
-                <span className="hidden sm:inline">{link.label}</span>
+                {link.label}
               </a>
             );
           })}
         </div>
 
+        <div className="flex flex-1 justify-end md:hidden" />
+
         <div className="flex shrink-0 items-center gap-2">
           <a
             href="/resume.pdf"
-            className="hidden h-8 items-center rounded-md bg-[#1f2d24] px-3 text-sm font-semibold leading-none text-[#fffaf0] transition hover:bg-[#2f4637] dark:bg-[#f4f1df] dark:text-[#050505] dark:hover:bg-white sm:inline-flex"
+            onClick={() => setIsMenuOpen(false)}
+            className="inline-flex h-8 items-center rounded-md bg-[#1f2d24] px-3 text-sm font-semibold leading-none text-[#fffaf0] transition hover:bg-[#2f4637] dark:bg-[#f4f1df] dark:text-[#050505] dark:hover:bg-white"
           >
             Resume
           </a>
@@ -107,7 +111,66 @@ export default function Navbar() {
               }`}
             />
           </button>
+
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((current) => !current)}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-[#1f2d24]/10 bg-[#1f2d24]/5 text-[#1f2d24] transition hover:bg-[#1f2d24]/10 dark:border-white/10 dark:bg-white/10 dark:text-[#f4f1df] dark:hover:bg-white/15 md:hidden"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
+          >
+            <span className="sr-only">
+              {isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            </span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+            >
+              {isMenuOpen ? (
+                <>
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </>
+              ) : (
+                <>
+                  <path d="M4 7h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 17h16" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
+
+        {isMenuOpen && (
+          <div className="absolute right-6 top-full mt-2 w-44 rounded-2xl border border-[#1f2d24]/10 bg-[#fbfaf7]/85 p-2 shadow-lg shadow-[#1f2d24]/10 backdrop-blur-xl dark:border-white/10 dark:bg-black/75 dark:shadow-black/30 md:hidden">
+            <div className="grid gap-1">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={
+                      isActive
+                        ? "rounded-xl bg-[#1f2d24]/8 px-3 py-2 text-sm font-semibold text-[#1f2d24] dark:bg-white/10 dark:text-white"
+                        : "rounded-xl px-3 py-2 text-sm font-medium text-[#1f2d24]/70 transition hover:bg-[#1f2d24]/5 hover:text-[#1f2d24] dark:text-white/70 dark:hover:bg-white/10 dark:hover:text-white"
+                    }
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
