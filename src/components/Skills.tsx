@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import ScrollSection from "@/src/components/ScrollSection";
 import { skills } from "@/src/data/skills";
 
@@ -21,13 +23,36 @@ export default function Skills() {
         {skills.map((skill) => (
           <article
             key={skill.name}
-            className="flex items-center gap-4 rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] p-5 shadow-sm shadow-[#1f2d24]/5 transition hover:-translate-y-0.5 hover:border-[#1f2d24]/20 hover:shadow-md hover:shadow-[#1f2d24]/10 dark:border-white/10 dark:bg-[#111111] dark:hover:border-white/20"
+            className="flex items-center gap-3 rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] p-4 shadow-sm shadow-[#1f2d24]/5 transition hover:-translate-y-0.5 hover:border-[#1f2d24]/20 hover:shadow-md hover:shadow-[#1f2d24]/10 dark:border-white/10 dark:bg-[#111111] dark:hover:border-white/20"
           >
-            <div
-              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold shadow-sm ${skill.iconClass}`}
-            >
-              {skill.icon}
-            </div>
+            {skill.iconPath ? (
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center">
+                <Image
+                  src={skill.iconPath}
+                  alt=""
+                  width={42}
+                  height={42}
+                  className={`max-h-9 max-w-9 object-contain ${
+                    skill.darkIconPath ? "dark:hidden" : ""
+                  }`}
+                />
+                {skill.darkIconPath && (
+                  <Image
+                    src={skill.darkIconPath}
+                    alt=""
+                    width={42}
+                    height={42}
+                    className="hidden max-h-9 max-w-9 object-contain dark:block"
+                  />
+                )}
+              </div>
+            ) : (
+              <div
+                className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-sm font-bold shadow-sm ${skill.iconClass}`}
+              >
+                {skill.icon}
+              </div>
+            )}
             <div>
               <h3 className="text-sm font-semibold text-[#1f2d24] dark:text-[#f4f1df]">
                 {skill.name}

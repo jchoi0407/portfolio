@@ -2,7 +2,6 @@ export type Project = {
   title: string;
   status: string;
   category: string;
-  collaboration: string;
   description: string;
   highlights: string[];
   tech: string[];
@@ -19,7 +18,6 @@ export const projects: Project[] = [
     title: "Timbre",
     status: "In progress",
     category: "Mobile & Backend",
-    collaboration: "Solo",
     description:
       "A mobile worship team collaboration app for team management, weekly setlists, sheet music uploads, and real-time data sync.",
     highlights: [
@@ -37,7 +35,6 @@ export const projects: Project[] = [
     title: "GhostDieDie",
     status: "Award-winning",
     category: "Full-stack & CV",
-    collaboration: "Team of 4",
     description:
       "A browser-based 1v1 3D fighting game where webcam pose controls attacks, with live video and synchronized combat.",
     highlights: [
@@ -49,14 +46,12 @@ export const projects: Project[] = [
     tech: ["React", "Three.js", "MediaPipe", "WebRTC", "FastAPI"],
     github: "https://github.com/orgs/Ghostdiedie/repositories",
     demo: "https://youtu.be/Ay273uz5BpE?si=vgd-1IVZY0J2erEe",
-    live: "https://ghostdiedie.surf/",
     image: "/projects/ghostdiedie.png",
   },
   {
     title: "Personal Portfolio",
     status: "In progress",
     category: "Frontend",
-    collaboration: "Solo",
     description:
       "A clean one-page portfolio built to present projects, experience, and technical interests with a warm modern interface.",
     highlights: [

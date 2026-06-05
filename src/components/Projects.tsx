@@ -72,40 +72,6 @@ export default function Projects() {
 
               <div className="flex flex-1 flex-col p-5">
                 <div className="mb-3 flex flex-wrap gap-2 text-xs font-medium">
-                  <span className="inline-flex items-center gap-1 rounded-full bg-[#1f2d24]/5 px-2.5 py-1 text-[#5f6f64] dark:bg-[#181818] dark:text-[#b7c3b9]">
-                    {project.collaboration === "Solo" ? (
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        className="h-2.5 w-2.5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                      >
-                        <path d="M20 21a8 8 0 0 0-16 0" />
-                        <circle cx="12" cy="7" r="4" />
-                      </svg>
-                    ) : (
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        className="h-2.5 w-2.5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                      >
-                        <path d="M16 21a6 6 0 0 0-12 0" />
-                        <circle cx="10" cy="7" r="4" />
-                        <path d="M22 21a5 5 0 0 0-4-4.9" />
-                        <path d="M17 3.1a4 4 0 0 1 0 7.8" />
-                      </svg>
-                    )}
-                    {project.collaboration}
-                  </span>
                   <span className="rounded-full bg-[#1f2d24]/5 px-2.5 py-1 text-[#5f6f64] dark:bg-[#181818] dark:text-[#b7c3b9]">
                     {project.category}
                   </span>
