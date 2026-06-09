@@ -142,14 +142,14 @@ export default function HeroProfileCard() {
             ))}
           </div>
 
-          <div className="relative z-10 mt-7 flex justify-center">
+          <div className="relative z-10 mt-8 flex justify-center">
             <button
               type="button"
               onClick={(event) => {
                 event.stopPropagation();
               }}
               className="grid h-28 w-28 grid-cols-9 gap-0.5 rounded-xl border border-[#1f2d24]/10 bg-[#fbfaf7] p-2 transition hover:-translate-y-0.5 hover:border-[#274c3a]/30 dark:border-white/10 dark:bg-white/[0.06]"
-              aria-label="Scan Junho Choi profile QR code"
+              aria-label="Decorative Junho Choi profile code"
             >
               {Array.from({ length: 81 }).map((_, index) => (
                 <span

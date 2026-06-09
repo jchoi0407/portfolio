@@ -16,6 +16,13 @@ export type Skill = {
 
 export const skills: Skill[] = [
   {
+    name: "Python",
+    category: "Programming Languages",
+    icon: "Py",
+    iconClass: "bg-[#e1e9f4] text-[#2f5f8f]",
+    iconPath: "/skills/python.svg",
+  },
+  {
     name: "Java",
     category: "Programming Languages",
     icon: "J",
@@ -73,18 +80,11 @@ export const skills: Skill[] = [
     iconPath: "/skills/typescript.svg",
   },
   {
-    name: "Python",
-    category: "Programming Languages",
-    icon: "Py",
-    iconClass: "bg-[#e1e9f4] text-[#2f5f8f]",
-    iconPath: "/skills/python.svg",
-  },
-  {
-    name: "React",
-    category: "Frontend",
-    icon: "R",
-    iconClass: "bg-[#dff4fb] text-[#16708a]",
-    iconPath: "/skills/react.svg",
+    name: "Tailwind CSS",
+    category: "Styling / UI",
+    icon: "TW",
+    iconClass: "bg-[#dcf4f1] text-[#13746d]",
+    iconPath: "/skills/tailwind-css.svg",
   },
   {
     name: "Next.js",
@@ -94,17 +94,17 @@ export const skills: Skill[] = [
     iconPath: "/skills/nextdotjs.svg",
   },
   {
+    name: "React",
+    category: "Frontend",
+    icon: "R",
+    iconClass: "bg-[#dff4fb] text-[#16708a]",
+    iconPath: "/skills/react.svg",
+  },
+  {
     name: "React Native",
     category: "Mobile Frameworks",
     icon: "RN",
     iconClass: "bg-[#dff4fb] text-[#16708a]",
     iconPath: "/skills/reactnative.svg",
-  },
-  {
-    name: "Tailwind CSS",
-    category: "Styling / UI",
-    icon: "TW",
-    iconClass: "bg-[#dcf4f1] text-[#13746d]",
-    iconPath: "/skills/tailwind-css.svg",
   },
 ];

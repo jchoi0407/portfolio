@@ -17,11 +17,10 @@ export const experiences: Experience[] = [
     description:
       "Served as a KATUSA soldier supporting U.S. Army CID operations through personnel leadership, equipment readiness, and joint investigation communication.",
     highlights: [
-      "Supervised in-processing and training for newly assigned KATUSA personnel while leading a 7-person team during physical training and daily operational briefings.",
-      "Led maintenance readiness for mission-essential military vehicles by developing a new SOP and conducting monthly vehicle inspections.",
-      "Managed M17/M18 and M4 weapons systems readiness for U.S. Army CID operations.",
-      "Served as a liaison and interpreter during joint investigations between U.S. Army CID, Korean National Police, and Korean Criminal Investigation Group.",
-      "Awarded the Army Commendation Medal for service and contributions to U.S. Army CID operations.",
+      "Led a 7-person KATUSA squad in daily accountability, onboarding, physical training, and roll-call briefings in a bilingual U.S.-Korea military environment.",
+      "Created a vehicle maintenance SOP for mission-essential CID vehicles, standardizing monthly inspections, readiness checks, and maintenance documentation.",
+      "Maintained readiness records for mission-essential vehicles and assigned weapons systems, including M17/M18 pistols and M4 rifles.",
+      "Interpreted Korean-English communication during joint investigations involving U.S. Army CID, Korean National Police, and Korean Criminal Investigation Group.",
     ],
     image: "/experience/katusa.jpg",
   },

@@ -23,7 +23,9 @@ export default function Experience() {
         {experiences.map((experience) => (
           <article
             key={`${experience.organization}-${experience.role}`}
-            className="grid gap-6 rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] p-6 shadow-sm shadow-[#1f2d24]/5 dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20 lg:grid-cols-[1fr_280px]"
+            className={`grid gap-6 rounded-2xl border border-[#1f2d24]/10 bg-[#fffdf8] p-6 shadow-sm shadow-[#1f2d24]/5 dark:border-white/10 dark:bg-[#111111] dark:shadow-black/20 ${
+              experience.image ? "lg:grid-cols-[1fr_280px]" : ""
+            }`}
           >
             <div>
               <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
