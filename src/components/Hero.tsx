@@ -22,13 +22,14 @@ export default function Hero() {
 
         <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5f6f64] dark:text-[#b7c3b9]">
           I&apos;m a junior Computer Science student at the University of
-          Maryland, interested in full-stack development, mobile applications,
-          and computer vision.
+          Maryland building web and mobile applications with a focus on usable
+          interfaces, reliable data flows, and practical software systems.
         </p>
 
         <p className="mt-5 max-w-2xl text-base leading-7 text-[#5f6f64] dark:text-[#b7c3b9]">
-          I&apos;m drawn to projects that combine solid engineering fundamentals
-          with interfaces people can actually interact with.
+          My recent work spans React Native apps, browser-based computer vision,
+          and full-stack projects that connect engineering fundamentals with
+          real user interactions.
         </p>
       </div>
 
